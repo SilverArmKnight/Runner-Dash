@@ -19,7 +19,7 @@ export const Config = {
       moveSpeed: 4,
       maxJumps: 1,
       position: {
-        x: 350,
+        x: 300,
         y: 350
       }
     },
@@ -43,10 +43,10 @@ export const Config = {
     },
 
     diamonds: {
-      chance: 0.4,
+      chance: 1,
       offset: {
-        min: 100,
-        max: 200
+        min: 50,
+        max: 100
       }
     },
     
