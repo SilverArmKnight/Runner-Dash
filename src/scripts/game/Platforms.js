@@ -9,35 +9,42 @@ export class Platforms {
 
     this.createPlatform({
         rows: 4,
-        cols: 6,
-        x: 200
+        cols: 5,
+        x: 150,
+        y: 500
+    })
+
+    this.createPlatform({
+      rows: 2,
+      cols: 2,
+      x: 650,
+      y: 400
+    })
+
+    this.createPlatform({
+      rows: 2,
+      cols: 2,
+      x: 950,
+      y: 300
+    })
+
+    this.createPlatform({
+      rows: 2,
+      cols: 2,
+      x: 1250,
+      y: 200
     })
   }
 
   createPlatform(data) {
-    const platform = new Platform(data.rows, data.cols, data.x);
+    const platform = new Platform(data.rows, data.cols, data.x, data.y);
     this.container.addChild(platform.container);
     this.platforms.push(platform);
     this.current = platform;
   }
 
   update() {
-    if (this.current.container.x + this.current.container.width < window.innerWidth) {
-      this.createPlatform(this.randomData);
-    }
-  }
 
-  get randomData() {
-    this.ranges = App.config.platforms.ranges;
-    let data = { rows: 0, cols: 0, x: 0 };
-
-    const offset = this.ranges.offset.min + Math.round(Math.random() * (this.ranges.offset.max - this.ranges.offset.min));
-    data.x = this.current.container.x + this.current.container.width + offset;
-    
-    data.cols = this.ranges.cols.min + Math.round(Math.random() * (this.ranges.cols.max - this.ranges.cols.min));
-    data.rows = this.ranges.rows.min + Math.round(Math.random() * (this.ranges.rows.max - this.ranges.rows.min));
-
-    return data;
   }
 
   destroy() {

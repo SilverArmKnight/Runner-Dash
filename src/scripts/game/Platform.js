@@ -4,14 +4,14 @@ import { App } from '../system/App';
 import { Diamond } from "./Diamond";
 
 export class Platform {
-  constructor(rows, cols, x) {
+  constructor(rows, cols, x, y) {
     this.rows = rows
     this.cols = cols
     this.tileSize = PIXI.Texture.from("tile").width
     this.width = this.tileSize * this.cols
     this.height = this.tileSize * this.rows
 
-    this.createContainer(x)
+    this.createContainer(x, y)
     this.createTiles()
 
     // Specify the speed of the platform.
@@ -21,10 +21,10 @@ export class Platform {
     this.createDiamonds()
   }
 
-  createContainer(x) {
+  createContainer(x, y) {
     this.container = new PIXI.Container();
     this.container.x = x
-    this.container.y = window.innerHeight - this.height
+    this.container.y = y
   }
 
   createTiles() {
