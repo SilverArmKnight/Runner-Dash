@@ -77,15 +77,6 @@ export class Platform {
     this.diamonds.push(diamond)
   }
 
-  move() {
-    if (this.body) {
-      Matter.Body.setPosition(this.body, {x: this.body.position.x + this.dx,
-                                          y: this.body.position.y})
-      this.container.x = this.body.position.x - this.width / 2
-      this.container.y = this.body.position.y - this.height / 2
-    }
-  }
-
   destroy() {
     Matter.World.remove(App.physics.world, this.body)
     this.diamonds.forEach(diamond => diamond.destroy())
