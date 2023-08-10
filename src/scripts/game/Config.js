@@ -5,7 +5,7 @@ export const Config = {
     score: {
       x: 10,
       y: 10,
-      anchor: 0,
+      anchor: 0, 
       style: {
         fontFamily: "Verdana",
         fontWeight: "bold",
